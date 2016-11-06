@@ -20,14 +20,17 @@ if(isset($_POST) && !empty($_POST)){
 			$mail->isSMTP();                                   // Setando protocolo STMP
 			$mail->Host = 'smtp.gmail.com';                    // Servidor SMTP
 			$mail->SMTPAuth = true;                            // Autenticacao SMTP TRUE
-			$mail->Username = 'saimpluss@gmail.com';           // Email de origem 
-			$mail->Password = 'daniel321'; // Senha do Email de Origen
+			$mail->Username = 'Your email address';           // Email de origem 
+			$mail->Password = 'Your email password'; // Senha do Email de Origen
 			$mail->SMTPSecure = 'tls';                         // Encriptacao TlS, `ssl` tambem permitido
 			$mail->Port = 587;                                 // Porta TCP utilizada (SMTP)
 
-			$mail->setFrom('meninotrevoso@gmail.com', 'Site - Contato');
-			$mail->addReplyTo('meninotrevoso@gmail.com', 'Site - Contato');
-			$mail->addAddress('vitorvqz@gmail.com'); // Email que recebera as mensagens
+			$mail->setFrom('Somemail@mail.com', 'Site - Contato');
+			$mail->addReplyTo('Somemail@mail.com', 'Site - Contato');
+			
+			// Email that will receive the messages from the form.
+			$mail->addAddress('Somemail@mail.com'); // Email que recebera as mensagens
+
 
 			$mail->isHTML(true);  // Conteudo formatado em HTML
 
