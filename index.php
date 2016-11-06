@@ -1,7 +1,12 @@
 <?php
 require 'PHPMailer/PHPMailerAutoload.php';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $_POST = [];
+}
 
-if(isset($_POST) && !empty($_POST)){
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
 	if(!empty($_FILES['attachment']['name'])){
 
 		$file_name = $_FILES['attachment']['name'];
@@ -20,17 +25,14 @@ if(isset($_POST) && !empty($_POST)){
 			$mail->isSMTP();                                   // Setando protocolo STMP
 			$mail->Host = 'smtp.gmail.com';                    // Servidor SMTP
 			$mail->SMTPAuth = true;                            // Autenticacao SMTP TRUE
-			$mail->Username = 'Your email address';           // Email de origem 
-			$mail->Password = 'Your email password'; // Senha do Email de Origen
+			$mail->Username = 'Your Email Address';           // Email de origem 
+			$mail->Password = 'Your Email Password'; // Senha do Email de Origen
 			$mail->SMTPSecure = 'tls';                         // Encriptacao TlS, `ssl` tambem permitido
 			$mail->Port = 587;                                 // Porta TCP utilizada (SMTP)
 
-			$mail->setFrom('Somemail@mail.com', 'Site - Contato');
-			$mail->addReplyTo('Somemail@mail.com', 'Site - Contato');
-			
-			// Email that will receive the messages from the form.
-			$mail->addAddress('Somemail@mail.com'); // Email que recebera as mensagens
-
+			$mail->setFrom('someothermail@gmail.com', 'Site - Contact');
+			$mail->addReplyTo('someothermail@gmail.com', 'Site - Contact');
+			$mail->addAddress('somemail@gmail.com'); // Email que recebera as mensagens
 
 			$mail->isHTML(true);  // Conteudo formatado em HTML
 
@@ -45,7 +47,7 @@ if(isset($_POST) && !empty($_POST)){
  			$mail->AddAttachment($file,
                          		 $file_name);
 
-			$mail->Subject = 'Teste';
+			$mail->Subject = 'Test';
 			$mail->Body    = $bodyContent;
 
 			if(!$mail->send()) {
@@ -76,8 +78,8 @@ if(isset($_POST) && !empty($_POST)){
 		<title>PHP Simple Email</title>
 	</head>
 		<body>
-			<div class="container">
-				<form method="post" action="index.php" enctype="multipart/form-data">
+			<div style="margin-top:10px" class="container">
+				<form method="post" action="index2.php" enctype="multipart/form-data">
 					<input type="file" name="attachment"/><br>
 					<input class="btn btn-success" type="submit" value="Enviar"/>
 				</form>				
