@@ -79,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	</head>
 		<body>
 			<div style="margin-top:10px" class="container">
-				<form method="post" action="index2.php" enctype="multipart/form-data">
+				<form method="post" action="index.php" enctype="multipart/form-data">
 					<input type="file" name="attachment"/><br>
 					<input class="btn btn-success" type="submit" value="Enviar"/>
 				</form>				
