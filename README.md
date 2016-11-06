@@ -15,3 +15,6 @@ da autenticacao SMTP.
 Informe um email para receber as mensagens ('AddAddress function')
 
 Tudo pronto! ;)
+
+Base Functions Credits to PHP mailer https://github.com/PHPMailer/PHPMailer
+Funcoes Base Creditos a PHP mailer https://github.com/PHPMailer/PHPMailer
